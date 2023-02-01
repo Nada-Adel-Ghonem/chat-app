@@ -9,10 +9,11 @@ import { AuthContext } from "./context/AuthContext";
 const App = () => {
   const { currentUser } = useContext(AuthContext);
 
-  const protectedRoute = ({ children }) => {
+  const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
+    return children;
   };
 
   return (
@@ -22,9 +23,9 @@ const App = () => {
           <Route
             index
             element={
-              <protectedRoute>
+              <ProtectedRoute>
                 <Home />
-              </protectedRoute>
+              </ProtectedRoute>
             }
           />
           <Route path="register" element={<Register />} />
