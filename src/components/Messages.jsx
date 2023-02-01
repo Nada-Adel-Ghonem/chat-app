@@ -20,9 +20,9 @@ const Messages = () => {
 
   return (
     <div className="messages">
-      {messages.map((message) => {
-        <Message message={message} key={message.id} />;
-      })}
+      {messages.map((m) => (
+        <Message message={m} key={m.id} />
+      ))}
     </div>
   );
 };
